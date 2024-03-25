@@ -1,0 +1,20 @@
+0 安装MATLAB，并要有ROS ToolBox。
+   MATLAB 2023已经将ROS ToolBox集成了，其他版本的需要自行确定。
+   可在命令行窗口内输入 help ros 观察是否有输出。
+1 安装Visual Studio，我建议是Visual Studio 2019。
+   在“MATLAB\R2023b\bin\win64\mexopts”下查看msvcpp*.xml有哪些，一般会有2019。
+2 【以管理员身份运行MATLAB】
+   第一次配置需要这么做，以后都不需要这么做了
+3 配置python环境。
+   强烈建议使用Anaconda配置python环境，开个环境换装python，MATLAB2023可以安装python3.9。
+   记录下该环境可执行文件的路径“D:\Anaconda3\envs\py_matlab\python.exe”。
+   在命令行窗口内输入pyenv('Version', "D:\Anaconda3\envs\py_matlab\python.exe")
+4 配置“custom_msgs”。
+   解压“custom_msgs.zip”文件，拷贝至安装路径“MATLAB\R2023b\toolbox\ros\”内，比如“C:\Program Files\MATLAB\R2023b\toolbox\ros\”。
+   在命令行窗口内输入rosgenmsg("C:\Program Files\MATLAB\R2023b\toolbox\ros\custom_msgs")。
+   如果出现类似没有权限修改该文件夹的报错，右键custom_msgs文件夹，属性-安全-编辑-User的权限修改为完全控制允许-应用-确定，重复上述指令。
+   addpath('C:\Program Files\MATLAB\R2023b\toolbox\ros\custom_msgs\matlab_msg_gen_ros1\win64\install\m')
+   savepath
+5 正常使用
+   分别修改map_for_bay.m和bay.m内的path_bag和path_txt
+   按顺序运行map_for_bay.m和bay.m
